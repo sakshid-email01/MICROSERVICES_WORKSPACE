@@ -1,0 +1,26 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: API_GATEWAY
+  cloud:
+      gateway:
+         mvc:
+           routes:
+            - id: CLUBSERVICE
+              uri: 
+                   lb://CLUBSERVICE
+              predicates:
+                 - Path=/clubController/**
+        
+            - id: MEMBERSERVICE
+              uri: 
+                 lb://MEMBERSERVICE
+              predicates:
+                  - Path=/memberController/** 
+        
+    
+ 
+        
+          
